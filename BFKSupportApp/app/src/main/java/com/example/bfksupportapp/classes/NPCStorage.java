@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 
-public class NPCStorage {
+public class NPCStorage extends Storage{
     private NPCStorage() {
 
     }
@@ -24,31 +24,35 @@ public class NPCStorage {
         return instance;
     }
 
-    private ArrayList<Character> NPCs = new ArrayList<>();
+    private ArrayList<Character> inventory = new ArrayList<>();
 
-    public void addNPC(Character character, Context context){
-        NPCs.add(character);
-        saveNPCs(context);
+    public void add(Character character, Context context){
+        inventory.add(character);
+        save(context);
     }
 
 
-    public ArrayList<Character> getNPCs(){
-        return NPCs;
+    public ArrayList<Character> getInventory(){
+        return inventory;
     }
 
-    public void saveNPCs(Context context){
+
+    @Override
+    void save(Context context) {
         try {
             ObjectOutputStream OOS = new ObjectOutputStream(context.openFileOutput("NPCs.data", Context.MODE_PRIVATE));
-            OOS.writeObject(NPCs);
+            OOS.writeObject(inventory);
             OOS.close();
         } catch (IOException e) {
             Toast.makeText(context, "Saving Failed", Toast.LENGTH_SHORT).show();
         }
     }
-    public void loadNPCs(Context context){
+
+    @Override
+    void load(Context context) {
         try {
             ObjectInputStream OIS = new ObjectInputStream(context.openFileInput("NPCs.data"));
-            NPCs = (ArrayList<Character>) OIS.readObject();
+            inventory = (ArrayList<Character>) OIS.readObject();
             OIS.close();
         }catch (FileNotFoundException e1){
             //Toast.makeText(context, "No save file", Toast.LENGTH_SHORT).show();

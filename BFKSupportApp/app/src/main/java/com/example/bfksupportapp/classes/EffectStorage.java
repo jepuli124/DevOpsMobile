@@ -9,36 +9,33 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+public class EffectStorage extends Storage{
 
-public class PlayerStorage extends Storage {
-    private PlayerStorage() {
+    private static EffectStorage instance;
 
-    }
-
-    private static PlayerStorage instance;
-    private ArrayList<Character> players = new ArrayList<>();
-
-    public static PlayerStorage getInstance() {
+    public static EffectStorage getInstance() {
         if (instance == null){
-            instance = new PlayerStorage();
+            instance = new EffectStorage();
         }
         return instance;
     }
 
-    void add(Character character, Context context) {
-        players.add(character);
+    private ArrayList<Effect> inventory = new ArrayList<>();
+
+    public void add(Effect effect, Context context){
+        inventory.add(effect);
         save(context);
     }
 
-    public ArrayList<Character> getInventory(){
-        return players;
+    public ArrayList<Effect> getInventory(){
+        return inventory;
     }
 
     @Override
     void save(Context context) {
         try {
-            ObjectOutputStream OOS = new ObjectOutputStream(context.openFileOutput("players.data", Context.MODE_PRIVATE));
-            OOS.writeObject(players);
+            ObjectOutputStream OOS = new ObjectOutputStream(context.openFileOutput("Effect.data", Context.MODE_PRIVATE));
+            OOS.writeObject(inventory);
             OOS.close();
         } catch (IOException e) {
             Toast.makeText(context, "Saving Failed", Toast.LENGTH_SHORT).show();
@@ -48,8 +45,8 @@ public class PlayerStorage extends Storage {
     @Override
     void load(Context context) {
         try {
-            ObjectInputStream OIS = new ObjectInputStream(context.openFileInput("players.data"));
-            players= (ArrayList<Character>) OIS.readObject();
+            ObjectInputStream OIS = new ObjectInputStream(context.openFileInput("Effect.data"));
+            inventory = (ArrayList<Effect>) OIS.readObject();
             OIS.close();
         }catch (FileNotFoundException e1){
             //Toast.makeText(context, "No save file", Toast.LENGTH_SHORT).show();
@@ -59,5 +56,4 @@ public class PlayerStorage extends Storage {
             Toast.makeText(context, "Class not found?", Toast.LENGTH_SHORT).show();
         }
     }
-
 }

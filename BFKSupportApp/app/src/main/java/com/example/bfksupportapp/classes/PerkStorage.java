@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PerkStorage {
+public class PerkStorage extends Storage{
     private PerkStorage() {
 
     }
@@ -24,22 +24,22 @@ public class PerkStorage {
         return instance;
     }
 
-    private ArrayList<Perk> perks = new ArrayList<>();
+    private ArrayList<Perk> inventory = new ArrayList<>();
 
-    public void AddPerk(Perk perk, Context context){
-        perks.add(perk);
-        savePerks(context);
+    public void add(Perk perk, Context context){
+        inventory.add(perk);
+        save(context);
     }
 
     public Perk randomPerk(){
         Random value = new Random();
-        return (perks.get(value.nextInt(perks.size())));
+        return (inventory.get(value.nextInt(inventory.size())));
     }
 
     public Perk randomPerkByType(String type, String neutrality){
         Random value = new Random();
         ArrayList<Perk> perksByType = new ArrayList<>();
-        for (Perk perk: perks) {
+        for (Perk perk: inventory) {
             if(perk.getType().equals(type) && perk.getNeutrality().equals(neutrality)){
                 perksByType.add(perk);
             }
@@ -47,23 +47,27 @@ public class PerkStorage {
         return (perksByType.get(value.nextInt(perksByType.size())));
     }
 
-    public ArrayList<Perk> getPerks(){
-        return perks;
+    public ArrayList<Perk> getInventory(){
+        return inventory;
     }
 
-    public void savePerks(Context context){ //copied from far away more info in "learning dairy.docx".
+
+    @Override
+    void save(Context context) {
         try {
             ObjectOutputStream OOS = new ObjectOutputStream(context.openFileOutput("Perks.data", Context.MODE_PRIVATE));
-            OOS.writeObject(perks);
+            OOS.writeObject(inventory);
             OOS.close();
         } catch (IOException e) {
             Toast.makeText(context, "Saving Failed", Toast.LENGTH_SHORT).show();
         }
     }
-    public void loadPerks(Context context){
+
+    @Override
+    void load(Context context) {
         try {
             ObjectInputStream OIS = new ObjectInputStream(context.openFileInput("Perks.data"));
-            perks = (ArrayList<Perk>) OIS.readObject();
+            inventory = (ArrayList<Perk>) OIS.readObject();
             OIS.close();
         }catch (FileNotFoundException e1){
             //Toast.makeText(context, "No save file", Toast.LENGTH_SHORT).show();

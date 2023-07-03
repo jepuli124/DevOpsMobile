@@ -9,36 +9,33 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+public class ItemTypeStorage extends Storage {
 
-public class PlayerStorage extends Storage {
-    private PlayerStorage() {
+    private static ItemTypeStorage instance;
 
-    }
-
-    private static PlayerStorage instance;
-    private ArrayList<Character> players = new ArrayList<>();
-
-    public static PlayerStorage getInstance() {
+    public static ItemTypeStorage getInstance() {
         if (instance == null){
-            instance = new PlayerStorage();
+            instance = new ItemTypeStorage();
         }
         return instance;
     }
 
-    void add(Character character, Context context) {
-        players.add(character);
+    private ArrayList<ItemType> inventory = new ArrayList<>();
+
+    public void add(ItemType itemType, Context context){
+        inventory.add(itemType);
         save(context);
     }
 
-    public ArrayList<Character> getInventory(){
-        return players;
+    public ArrayList<ItemType> getInventory(){
+        return inventory;
     }
 
     @Override
     void save(Context context) {
         try {
-            ObjectOutputStream OOS = new ObjectOutputStream(context.openFileOutput("players.data", Context.MODE_PRIVATE));
-            OOS.writeObject(players);
+            ObjectOutputStream OOS = new ObjectOutputStream(context.openFileOutput("ItemType.data", Context.MODE_PRIVATE));
+            OOS.writeObject(inventory);
             OOS.close();
         } catch (IOException e) {
             Toast.makeText(context, "Saving Failed", Toast.LENGTH_SHORT).show();
@@ -48,8 +45,8 @@ public class PlayerStorage extends Storage {
     @Override
     void load(Context context) {
         try {
-            ObjectInputStream OIS = new ObjectInputStream(context.openFileInput("players.data"));
-            players= (ArrayList<Character>) OIS.readObject();
+            ObjectInputStream OIS = new ObjectInputStream(context.openFileInput("ItemType.data"));
+            inventory = (ArrayList<ItemType>) OIS.readObject();
             OIS.close();
         }catch (FileNotFoundException e1){
             //Toast.makeText(context, "No save file", Toast.LENGTH_SHORT).show();
@@ -59,5 +56,4 @@ public class PlayerStorage extends Storage {
             Toast.makeText(context, "Class not found?", Toast.LENGTH_SHORT).show();
         }
     }
-
 }
