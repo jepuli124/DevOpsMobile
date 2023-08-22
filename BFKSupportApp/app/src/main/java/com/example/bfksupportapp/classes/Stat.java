@@ -1,28 +1,26 @@
 package com.example.bfksupportapp.classes;
 
-import java.io.Serializable;
-
-public class Stat implements Serializable {
+public class Stat extends DataEntry {
 
     public Stat(String name, int level, int xp, int maxLvl) {
-        this.name = name;
+        super(name, "Level:\n" + level + "\nXp:\n" + xp + "\nMaxLvl:\n" + maxLvl);
         this.level = level;
         this.xp = xp;
         this.maxLvl = maxLvl;
     }
 
-    private String name;
+    public Stat(String name, String description) {
+        super(name, description);
+        /*
+        this.level = level;
+        this.xp = xp;
+        this.maxLvl = maxLvl; */
+    }
+
     private int level;
     private int xp;
     private int maxLvl;
     private final int XpToNextLvl = 5 * level;
-
-    private static final long serialVersionUID = 42L;
-
-
-    public String getName() {
-        return name;
-    }
 
     public int getLevel() {
         return level;

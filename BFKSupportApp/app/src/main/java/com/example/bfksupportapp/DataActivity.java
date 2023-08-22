@@ -26,7 +26,7 @@ public class DataActivity extends AppCompatActivity {
         Button dataToFabula = findViewById(R.id.DataToFabula);
         Button dataToNewEntry = findViewById(R.id.DataToNewEntry);
         Button dataToDeleteEntry = findViewById(R.id.DataToDeleteEntry);
-
+        Button dataToOmni = findViewById(R.id.DataToOmni);
 
 
         dataToMain.setOnClickListener(new View.OnClickListener() {
@@ -50,19 +50,25 @@ public class DataActivity extends AppCompatActivity {
         dataToBestia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toMain(view);
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "Bestia");
+                toReadDataActivity(view, bundle);
             }
         });
         dataToHerba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toMain(view);
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "Herba");
+                toReadDataActivity(view, bundle);
             }
         });
         dataToMorbus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toMain(view);
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "Morbus");
+                toReadDataActivity(view, bundle);
             }
         });
         dataToInstrumenta.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +108,13 @@ public class DataActivity extends AppCompatActivity {
             }
         });
 
+        dataToOmni.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toReadDataActivity(view);
+            }
+        });
+
     }
 
     public void bestia(View view){
@@ -110,6 +123,11 @@ public class DataActivity extends AppCompatActivity {
 
 
 
+    public void toReadDataActivity(View view, Bundle bundle){
+        Intent intent = new Intent(DataActivity.this, ReadDataActivity.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
     public void toReadDataActivity(View view){
         Intent intent = new Intent(DataActivity.this, ReadDataActivity.class);
         startActivity(intent);

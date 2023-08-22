@@ -1,21 +1,21 @@
 package com.example.bfksupportapp.classes;
 
-import java.io.Serializable;
-
-public class Effect implements Serializable {
+public class Effect extends DataEntry {
 
     public Effect(String name, int tier) {
+        super(name, "");
         this.name = name;
         this.tier = tier;
     }
 
+    public Effect(String name, String description) {
+        super(name, "");
+        this.name = name;
+        this.tier = 1;
+    }
+
     private final String name;
     private final int tier;
-    private static final long serialVersionUID = 42L;
-
-    public String getName() {
-        return name;
-    }
 
     public int getTier() {
         return tier;

@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bfksupportapp.classes.DataEntry;
-import com.example.bfksupportapp.classes.DataStorage;
 
 import java.util.ArrayList;
 
@@ -16,9 +15,9 @@ public class DataEntryAdapter extends RecyclerView.Adapter<DataEntryView> {
 
     private Context context;
     private ArrayList<DataEntry> entries = new ArrayList<DataEntry>();
-    public DataEntryAdapter(Context context) {
+    public DataEntryAdapter(Context context, ArrayList<DataEntry> entries) {
         this.context = context;
-        this.entries = DataStorage.getInstance().getInventory();
+        this.entries = entries;
     }
 
     @NonNull

@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WriteNewEntryActivity">
@@ -15,11 +13,11 @@
         android:id="@+id/WriteNewEntryAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="348dp"
+        android:layout_marginTop="44dp"
         android:text="Add New Entry"
         app:layout_constraintEnd_toEndOf="@+id/WriteNewEntryDesc"
         app:layout_constraintStart_toStartOf="@+id/WriteNewEntryDesc"
-        app:layout_constraintTop_toBottomOf="@+id/WriteNewEntryDesc" />
+        app:layout_constraintTop_toBottomOf="@+id/WriteNewDataRadioGroup" />
 
     <EditText
         android:id="@+id/WriteNewEntryName"
@@ -27,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
         android:ems="10"
+        android:hint="Name"
         android:inputType="text"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +39,7 @@
         android:layout_marginTop="48dp"
         android:ems="10"
         android:gravity="start|top"
+        android:hint="Desc."
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="@+id/WriteNewEntryName"
         app:layout_constraintHorizontal_bias="0.0"
@@ -54,6 +53,71 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <RadioGroup
+        android:id="@+id/WriteNewDataRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/WriteNewEntryDesc"
+        app:layout_constraintStart_toStartOf="@+id/WriteNewEntryDesc"
+        app:layout_constraintTop_toBottomOf="@+id/WriteNewEntryDesc">
+
+        <RadioButton
+            android:id="@+id/WriteNewDataRadioPlayerCharacter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Player Character" />
+
+        <RadioButton
+            android:id="@+id/WriteNewDataRadioNPC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NPC" />
+
+        <RadioButton
+            android:id="@+id/WriteNewDataRadioBestia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bestia" />
+
+        <RadioButton
+            android:id="@+id/WriteNewDataRadioHerba"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Herba" />
+
+        <RadioButton
+            android:id="@+id/WriteNewDataRadioMorbus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Morbus" />
+
+        <RadioButton
+            android:id="@+id/WriteNewDataRadioInstrumenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Instrumenta" />
+
+        <RadioButton
+            android:id="@+id/WriteNewDataRadioAttributum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Attributum" />
+
+        <RadioButton
+            android:id="@+id/WriteNewDataRadioMateria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Materia" />
+
+        <RadioButton
+            android:id="@+id/WriteNewDataRadioFabula"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fabula" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

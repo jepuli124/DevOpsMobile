@@ -1,14 +1,12 @@
 package com.example.bfksupportapp.classes;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Character implements Serializable {
+public class Character extends DataEntry {
 
 
     public Character(String name, String description, String history, String species, ArrayList<Stat> stats, ArrayList<Item> items, ArrayList<Perk> perks) {
-        this.name = name;
-        this.description = description;
+        super(name, "Description: " + description + "\nHistory: \n" + history+ "\nSpecies: \n" + species );
         this.history = history;
         this.species = species;
         this.stats = stats;
@@ -16,13 +14,23 @@ public class Character implements Serializable {
         this.perks = perks;
     }
 
-    public Character(){
-        this.name = name;
-        this.description = description;
+    public Character(String name, String description) {
+        super(name, "Description: " + description);
+        /*
         this.history = history;
         this.species = species;
         this.stats = stats;
         this.items = items;
+        this.perks = perks;*/
+    }
+
+    public Character(){
+        super("No Name", "NoDesc");
+        /*
+        this.history = history;
+        this.species = species;
+        this.stats = stats;
+        this.items = items; */
 
 
         this.perks.add(PerkStorage.getInstance().randomPerkByType("physical", "positive"));
@@ -39,13 +47,12 @@ public class Character implements Serializable {
 
     }
 
-    private String name;
-    private String description;
+
     private String history;
     private String species;
 
     private ArrayList<Stat> stats = new ArrayList<>();
     private ArrayList<Item> items = new ArrayList<>();
     private ArrayList<Perk> perks = new ArrayList<>();
-    private static final long serialVersionUID = 42L;
+
 }
