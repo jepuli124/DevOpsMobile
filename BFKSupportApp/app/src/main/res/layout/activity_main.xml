@@ -25,4 +25,16 @@
         app:layout_constraintEnd_toEndOf="@+id/MainToCal"
         app:layout_constraintStart_toStartOf="@+id/MainToCal"
         app:layout_constraintTop_toBottomOf="@+id/MainToCal" />
+
+    <Button
+        android:id="@+id/MainDataBase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="Database"
+        app:layout_constraintEnd_toEndOf="@+id/MainStickBug"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/MainStickBug"
+        app:layout_constraintTop_toBottomOf="@+id/MainStickBug" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

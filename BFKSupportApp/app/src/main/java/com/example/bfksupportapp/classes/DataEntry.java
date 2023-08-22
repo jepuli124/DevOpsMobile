@@ -1,13 +1,17 @@
 package com.example.bfksupportapp.classes;
 
-public class DataEntry {
+import java.io.Serializable;
+
+public class DataEntry implements Serializable {
     public DataEntry(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
-    String name;
-    String description;
+    protected String name;
+    protected String description;
+
+    protected static final long serialVersionUID = 42L;
 
     public String getName() {
         return name;

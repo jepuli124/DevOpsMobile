@@ -1,8 +1,12 @@
 package com.example.bfksupportapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class DataActivity extends AppCompatActivity {
 
@@ -10,5 +14,115 @@ public class DataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
+        ImageView dataToMain = findViewById(R.id.dataToMain);
+        Button dataToPlayerCharacters = findViewById(R.id.DataToPlayerCharacters);
+        Button dataToNPC = findViewById(R.id.DataToNPC);
+        Button dataToBestia = findViewById(R.id.DataToBestia);
+        Button dataToHerba = findViewById(R.id.DataToHerba);
+        Button dataToMorbus = findViewById(R.id.DataToMorbus);
+        Button dataToInstrumenta = findViewById(R.id.DataToInstrumenta);
+        Button dataToAttributum = findViewById(R.id.DataToAttributum);
+        Button dataToMateria = findViewById(R.id.DataToMateria);
+        Button dataToFabula = findViewById(R.id.DataToFabula);
+        Button dataToNewEntry = findViewById(R.id.DataToNewEntry);
+        Button dataToDeleteEntry = findViewById(R.id.DataToDeleteEntry);
+
+
+
+        dataToMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toMain(view);
+            }
+        });
+        dataToPlayerCharacters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toReadDataActivity(view);
+            }
+        });
+        dataToNPC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toMain(view);
+            }
+        });
+        dataToBestia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toMain(view);
+            }
+        });
+        dataToHerba.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toMain(view);
+            }
+        });
+        dataToMorbus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toMain(view);
+            }
+        });
+        dataToInstrumenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toMain(view);
+            }
+        });
+        dataToAttributum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toMain(view);
+            }
+        });
+        dataToMateria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toMain(view);
+            }
+        });
+        dataToFabula.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toMain(view);
+            }
+        });
+        dataToNewEntry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toWriteNewEntryActivity(view);
+            }
+        });
+        dataToDeleteEntry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toMain(view);
+            }
+        });
+
     }
+
+    public void bestia(View view){
+
+    }
+
+
+
+    public void toReadDataActivity(View view){
+        Intent intent = new Intent(DataActivity.this, ReadDataActivity.class);
+        startActivity(intent);
+    }
+
+    public void toMain(View view){
+        Intent intent = new Intent(DataActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void toWriteNewEntryActivity(View view){
+        Intent intent = new Intent(DataActivity.this, WriteNewEntryActivity.class);
+        startActivity(intent);
+    }
+
 }

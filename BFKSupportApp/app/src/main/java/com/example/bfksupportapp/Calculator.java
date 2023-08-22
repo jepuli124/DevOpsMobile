@@ -5,20 +5,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Calculator extends AppCompatActivity {
 
 
-    TextView result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        result = findViewById(R.id.CalNumOutput);
+        TextView result = findViewById(R.id.CalNumOutput);
         if(getIntent().hasExtra("key")){
-            String extra = getIntent().getExtras().getString("key");
-            result.setText(extra);
+            Bundle bundle = getIntent().getExtras();
+            String extra = bundle.getString("key");
+            Toast.makeText(this, extra, Toast.LENGTH_SHORT).show(); //reads output of bundle.
         }
         setContentView(R.layout.activity_calculator);
         Button calBack = findViewById(R.id.CalBack);
@@ -40,7 +41,7 @@ public class Calculator extends AppCompatActivity {
     }
 
     public void calAdd(View view){
-
+        TextView result = findViewById(R.id.CalNumOutput);
         TextView input1 = findViewById(R.id.calNumInput1);
         TextView input2 = findViewById(R.id.CalNumInput2);
         if(input1.getText().length() == 0){

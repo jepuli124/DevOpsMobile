@@ -1,9 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DataActivity">
 
+    <Button
+        android:id="@+id/DataToPlayerCharacters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Player Characters"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/DataToNPC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="NPC:s"
+        app:layout_constraintEnd_toEndOf="@+id/DataToPlayerCharacters"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/DataToPlayerCharacters"
+        app:layout_constraintTop_toBottomOf="@+id/DataToPlayerCharacters" />
+
+    <Button
+        android:id="@+id/DataToHerba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Book of Herba"
+        app:layout_constraintEnd_toEndOf="@+id/DataToBestia"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/DataToBestia"
+        app:layout_constraintTop_toBottomOf="@+id/DataToBestia" />
+
+    <ImageView
+        android:id="@+id/dataToMain"
+        android:layout_width="71dp"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <Button
+        android:id="@+id/DataToBestia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Book of Bestia"
+        app:layout_constraintEnd_toEndOf="@+id/DataToNPC"
+        app:layout_constraintStart_toStartOf="@+id/DataToNPC"
+        app:layout_constraintTop_toBottomOf="@+id/DataToNPC" />
+
+    <Button
+        android:id="@+id/DataToMorbus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Book of Morbus"
+        app:layout_constraintEnd_toEndOf="@+id/DataToHerba"
+        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintStart_toStartOf="@+id/DataToHerba"
+        app:layout_constraintTop_toBottomOf="@+id/DataToHerba" />
+
+    <Button
+        android:id="@+id/DataToInstrumenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Book of Instrumenta"
+        app:layout_constraintEnd_toEndOf="@+id/DataToMorbus"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@+id/DataToMorbus"
+        app:layout_constraintTop_toBottomOf="@+id/DataToMorbus" />
+
+    <Button
+        android:id="@+id/DataToAttributum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Book of Attributum"
+        app:layout_constraintEnd_toEndOf="@+id/DataToInstrumenta"
+        app:layout_constraintStart_toStartOf="@+id/DataToInstrumenta"
+        app:layout_constraintTop_toBottomOf="@+id/DataToInstrumenta" />
+
+    <Button
+        android:id="@+id/DataToMateria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Book of Materia"
+        app:layout_constraintEnd_toEndOf="@+id/DataToAttributum"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/DataToAttributum"
+        app:layout_constraintTop_toBottomOf="@+id/DataToAttributum" />
+
+    <Button
+        android:id="@+id/DataToFabula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Book of Fabula"
+        app:layout_constraintEnd_toEndOf="@+id/DataToMateria"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="@+id/DataToMateria"
+        app:layout_constraintTop_toBottomOf="@+id/DataToMateria" />
+
+    <Button
+        android:id="@+id/DataToNewEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        android:text="New Entry"
+        app:layout_constraintEnd_toStartOf="@+id/DataToFabula"
+        app:layout_constraintTop_toBottomOf="@+id/DataToFabula" />
+
+    <Button
+        android:id="@+id/DataToDeleteEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:text="Delete Entry"
+        app:layout_constraintStart_toEndOf="@+id/DataToFabula"
+        app:layout_constraintTop_toBottomOf="@+id/DataToFabula" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
