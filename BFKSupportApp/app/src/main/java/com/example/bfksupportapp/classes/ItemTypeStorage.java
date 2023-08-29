@@ -32,7 +32,7 @@ public class ItemTypeStorage extends Storage {
     }
 
     @Override
-    void save(Context context) {
+    public void save(Context context) {
         try {
             ObjectOutputStream OOS = new ObjectOutputStream(context.openFileOutput("ItemType.data", Context.MODE_PRIVATE));
             OOS.writeObject(inventory);
@@ -43,7 +43,7 @@ public class ItemTypeStorage extends Storage {
     }
 
     @Override
-    void load(Context context) {
+    public void load(Context context) {
         try {
             ObjectInputStream OIS = new ObjectInputStream(context.openFileInput("ItemType.data"));
             inventory = (ArrayList<ItemType>) OIS.readObject();

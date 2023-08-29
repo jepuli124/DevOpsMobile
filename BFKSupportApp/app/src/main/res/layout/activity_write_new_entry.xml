@@ -101,10 +101,16 @@
             android:text="Instrumenta" />
 
         <RadioButton
-            android:id="@+id/WriteNewDataRadioAttributum"
+            android:id="@+id/WriteNewDataRadioPerk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Attributum" />
+            android:text="Perk" />
+
+        <RadioButton
+            android:id="@+id/WriteNewDataRadioEffect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Effect" />
 
         <RadioButton
             android:id="@+id/WriteNewDataRadioMateria"

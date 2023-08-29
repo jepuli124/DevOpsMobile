@@ -35,7 +35,7 @@ public class DataStorage extends Storage{
     }
 
     @Override
-    void save(Context context) {
+    public void save(Context context) {
         try {
             ObjectOutputStream OOS = new ObjectOutputStream(context.openFileOutput("dataEntries.data", Context.MODE_PRIVATE));
             OOS.writeObject(entries);
@@ -46,7 +46,7 @@ public class DataStorage extends Storage{
     }
 
     @Override
-    void load(Context context) {
+    public void load(Context context) {
         try {
             ObjectInputStream OIS = new ObjectInputStream(context.openFileInput("dataEntries.data"));
             entries = (ArrayList<DataEntry>) OIS.readObject();

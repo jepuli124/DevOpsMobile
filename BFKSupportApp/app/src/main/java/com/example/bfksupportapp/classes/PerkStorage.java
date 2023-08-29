@@ -53,7 +53,7 @@ public class PerkStorage extends Storage{
 
 
     @Override
-    void save(Context context) {
+    public void save(Context context) {
         try {
             ObjectOutputStream OOS = new ObjectOutputStream(context.openFileOutput("Perks.data", Context.MODE_PRIVATE));
             OOS.writeObject(inventory);
@@ -64,7 +64,7 @@ public class PerkStorage extends Storage{
     }
 
     @Override
-    void load(Context context) {
+    public void load(Context context) {
         try {
             ObjectInputStream OIS = new ObjectInputStream(context.openFileInput("Perks.data"));
             inventory = (ArrayList<Perk>) OIS.readObject();

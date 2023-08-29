@@ -1,6 +1,7 @@
 package com.example.bfksupportapp;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +10,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.bfksupportapp.classes.DataStorage;
+import com.example.bfksupportapp.classes.EffectStorage;
+import com.example.bfksupportapp.classes.ItemTypeStorage;
+import com.example.bfksupportapp.classes.MaterialStorage;
+import com.example.bfksupportapp.classes.NPCStorage;
+import com.example.bfksupportapp.classes.PerkStorage;
+import com.example.bfksupportapp.classes.PlayerStorage;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,10 +28,12 @@ public class MainActivity extends AppCompatActivity {
         Button mainToCal = findViewById(R.id.MainToCal);
         Button mainToStickBug = findViewById(R.id.MainStickBug);
         Button mainToDatabase = findViewById(R.id.MainDataBase);
+
+        loadStorages(this);
         mainToCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Calculator.class);
+                Intent intent = new Intent(MainActivity.this, CalculatorActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("key", "value");
                 intent.putExtras(bundle);
@@ -56,5 +67,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void loadStorages(Context context){
+        DataStorage.getInstance().load(context);
+        EffectStorage.getInstance().load(context);
+        ItemTypeStorage.getInstance().load(context);
+        MaterialStorage.getInstance().load(context);
+        NPCStorage.getInstance().load(context);
+        PerkStorage.getInstance().load(context);
+        PlayerStorage.getInstance().load(context);
+
     }
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".AddionalDataCharacterActivity">
+
+
+        <EditText
+            android:id="@+id/AddionalDataCharName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/AddionalDataCharDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="description"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="@+id/AddionalDataCharName"
+            app:layout_constraintStart_toStartOf="@+id/AddionalDataCharName"
+            app:layout_constraintTop_toBottomOf="@+id/AddionalDataCharName" />
+
+        <EditText
+            android:id="@+id/AddionalDataCharHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="History"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="@+id/AddionalDataCharDesc"
+            app:layout_constraintStart_toStartOf="@+id/AddionalDataCharDesc"
+            app:layout_constraintTop_toBottomOf="@+id/AddionalDataCharDesc" />
+
+        <EditText
+            android:id="@+id/AddionalDataCharSpecies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Species"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="@+id/AddionalDataCharHistory"
+            app:layout_constraintStart_toStartOf="@+id/AddionalDataCharHistory"
+            app:layout_constraintTop_toBottomOf="@+id/AddionalDataCharHistory" />
+
+        <Button
+            android:id="@+id/AddionalDataFinish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:text="Finish character"
+            app:layout_constraintEnd_toEndOf="@+id/AddionalDataCharSpecies"
+            app:layout_constraintStart_toStartOf="@+id/AddionalDataCharSpecies"
+            app:layout_constraintTop_toBottomOf="@+id/AddionalDataCharSpecies" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

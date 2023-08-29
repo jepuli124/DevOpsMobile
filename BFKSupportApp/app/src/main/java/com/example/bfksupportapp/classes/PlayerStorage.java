@@ -35,7 +35,7 @@ public class PlayerStorage extends Storage {
     }
 
     @Override
-    void save(Context context) {
+    public void save(Context context) {
         try {
             ObjectOutputStream OOS = new ObjectOutputStream(context.openFileOutput("players.data", Context.MODE_PRIVATE));
             OOS.writeObject(players);
@@ -46,7 +46,7 @@ public class PlayerStorage extends Storage {
     }
 
     @Override
-    void load(Context context) {
+    public void load(Context context) {
         try {
             ObjectInputStream OIS = new ObjectInputStream(context.openFileInput("players.data"));
             players= (ArrayList<Character>) OIS.readObject();

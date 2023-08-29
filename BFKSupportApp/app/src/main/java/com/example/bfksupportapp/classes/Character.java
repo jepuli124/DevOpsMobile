@@ -6,7 +6,7 @@ public class Character extends DataEntry {
 
 
     public Character(String name, String description, String history, String species, ArrayList<Stat> stats, ArrayList<Item> items, ArrayList<Perk> perks) {
-        super(name, "Description: " + description + "\nHistory: \n" + history+ "\nSpecies: \n" + species );
+        super(name, "Description:\n" + description + "\nHistory: \n" + history+ "\nSpecies: \n" + species );
         this.history = history;
         this.species = species;
         this.stats = stats;

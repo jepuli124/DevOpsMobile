@@ -14,8 +14,8 @@ public class Effect extends DataEntry {
         this.tier = 1;
     }
 
-    private final String name;
-    private final int tier;
+    private String name;
+    private int tier;
 
     public int getTier() {
         return tier;

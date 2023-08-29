@@ -38,13 +38,17 @@ public class DataActivity extends AppCompatActivity {
         dataToPlayerCharacters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toReadDataActivity(view);
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "Player Characters");
+                toReadDataActivity(view, bundle);
             }
         });
         dataToNPC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toMain(view);
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "NPC");
+                toReadDataActivity(view, bundle);
             }
         });
         dataToBestia.setOnClickListener(new View.OnClickListener() {
@@ -74,25 +78,33 @@ public class DataActivity extends AppCompatActivity {
         dataToInstrumenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toMain(view);
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "Instrumenta");
+                toReadDataActivity(view, bundle);
             }
         });
         dataToAttributum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toMain(view);
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "Attributum");
+                toReadDataActivity(view, bundle);
             }
         });
         dataToMateria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toMain(view);
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "Materia");
+                toReadDataActivity(view, bundle);
             }
         });
         dataToFabula.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toMain(view);
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "Fabula");
+                toReadDataActivity(view, bundle);
             }
         });
         dataToNewEntry.setOnClickListener(new View.OnClickListener() {
@@ -111,17 +123,13 @@ public class DataActivity extends AppCompatActivity {
         dataToOmni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toReadDataActivity(view);
+                Bundle bundle = new Bundle();
+                bundle.putString("key", "Omni");
+                toReadDataActivity(view, bundle);
             }
         });
 
     }
-
-    public void bestia(View view){
-
-    }
-
-
 
     public void toReadDataActivity(View view, Bundle bundle){
         Intent intent = new Intent(DataActivity.this, ReadDataActivity.class);
