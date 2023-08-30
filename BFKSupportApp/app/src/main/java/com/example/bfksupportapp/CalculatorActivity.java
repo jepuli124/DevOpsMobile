@@ -73,18 +73,22 @@ public class CalculatorActivity extends AppCompatActivity {
         if(inputEnemyArmor.getText().length() == 0){
             inputEnemyArmor.setText("0");
         }
-        int D20;
+        int calculatedHit;
         if(autoHitSwitch.isChecked()){
-            D20 = 20;
+            int D20 = 20;
+            calculatedHit = Integer.parseInt(inputWS.getText().toString()) + Integer.parseInt(inputSPD.getText().toString()) + D20 - Integer.parseInt(inputEnemySPD.getText().toString());
+            if(calculatedHit < 1) {
+                calculatedHit = 1;
+            }
         } else {
             Random random = new Random();
-            D20 = random.nextInt(21);
+            int D20 = random.nextInt(21);
+            calculatedHit = Integer.parseInt(inputWS.getText().toString()) + Integer.parseInt(inputSPD.getText().toString()) + D20 - Integer.parseInt(inputEnemySPD.getText().toString());
         }
-
-        int calculatedHit = Integer.parseInt(inputWS.getText().toString()) + Integer.parseInt(inputSPD.getText().toString()) + D20 - Integer.parseInt(inputEnemySPD.getText().toString());
 
         if(calculatedHit < 1) {
             Hit.setText("MISS!");
+            DMG.setText("NO DAMAGE!");
             return;
         }
         Hit.setText("HIT! by value of: " + Integer.toString(calculatedHit));
